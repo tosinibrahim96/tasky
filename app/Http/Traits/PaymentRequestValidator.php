@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Validator;
 trait PaymentRequestValidator
 {
 
+  /**
+   * Validate data sent for creating a new payment record.
+   * @param Request $request
+   * @return Array $result
+   */
 
   function validateCreatePayment($request)
   {

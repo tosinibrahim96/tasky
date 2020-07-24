@@ -24,8 +24,8 @@ class PaymentController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
-   *
+   * Store a new payment record.
+   * @param  \App\Project  $project_id
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */

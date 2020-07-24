@@ -62,6 +62,6 @@ class Handler extends ExceptionHandler
 
       return $this->failureResponse(405, "Method not Allowed");
     }
-    return $this->failureResponse(500, 'Sorry, an error occured while processing this request'.$exception);
+    return $this->failureResponse(500, 'Sorry, an error occured while processing this request');
   }
 }
