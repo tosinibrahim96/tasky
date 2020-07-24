@@ -69,7 +69,7 @@ class ProjectController extends Controller
   /**
    * Display single Project info.
    *
-   * @param  int  $id
+   * @param  String  $id
    * @return \Illuminate\Http\Response
    */
   public function show($id)
@@ -85,7 +85,7 @@ class ProjectController extends Controller
    * Update project details.
    *
    * @param  \Illuminate\Http\Request  $request
-   * @param  int  $id
+   * @param  String  $id
    * @return \Illuminate\Http\Response
    */
   public function update(Request $request, $id)
@@ -113,7 +113,7 @@ class ProjectController extends Controller
   /**
    * Remove a project from the system(Soft delete).
    *
-   * @param  int  $id
+   * @param  String  $id
    * @return \Illuminate\Http\Response
    */
   public function destroy($id)

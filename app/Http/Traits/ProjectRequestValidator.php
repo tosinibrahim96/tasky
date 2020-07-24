@@ -8,6 +8,11 @@ use Illuminate\Validation\Rule;
 trait ProjectRequestValidator
 {
 
+  /**
+   * Validate data sent for creating a new project.
+   * @param Request $request
+   * @return Array $result
+   */
 
   function validateCreateProject($request)
   {
@@ -29,6 +34,12 @@ trait ProjectRequestValidator
   }
 
 
+  /**
+   * Validate data sent for updating an existing project.
+   * @param Request $request
+   * @param Project $project
+   * @return Array $result
+   */
   function validateUpdateProject($request, $project)
   {
     $result = ["status" => true, "data" => null];
