@@ -10,10 +10,9 @@ jobs:
       - image: circleci/php:7.3-node-browsers
       - image: circleci/mysql:8.0.4
         environment:
-          MYSQL_ROOT_PASSWORD: rootpw
-          MYSQL_DATABASE: tasky-test
-          MYSQL_USER: root
-          MYSQL_PASSWORD: password
+          MYSQL_DATABASE: heroku_7d33962fceb06b7
+          MYSQL_USER: b9ae1ac0906816
+          MYSQL_PASSWORD: 737189e9
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -61,7 +60,7 @@ jobs:
           command: |
             for i in `seq 1 10`;
             do
-              nc -z 127.0.0.1 3306 && echo Success && exit 0
+              nc -z us-cdbr-east-02.cleardb.com 3306 && echo Success && exit 0
               echo -n .
               sleep 1
             done
