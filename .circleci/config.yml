@@ -71,6 +71,6 @@ jobs:
             sudo apt-get install default-mysql-client
 
       # run tests with phpunit or codecept
-      #- run: ./vendor/bin/phpunit
-      - run: ./vendor/bin/phpunit build
-      - run: ./vendor/bin/phpunit run
+      - run: ./vendor/bin/phpunit
+      #- run: ./vendor/bin/codeception build
+      #- run: ./vendor/bin/codeception run
