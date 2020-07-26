@@ -19,7 +19,7 @@ trait AuthRequestValidator
     $validator = Validator::make($request->all(), [
       'email' => 'required|email|unique:users',
       'username' => 'required|string|unique:users',
-      'password' => 'required|string|min:6'
+      'password' => 'required|min:6'
     ]);
 
     if ($validator->fails()) {
