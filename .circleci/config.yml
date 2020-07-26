@@ -55,7 +55,7 @@ jobs:
             - node_modules
 
       # prepare the database
-       - run:
+      - run:
       # Our primary container isn't MYSQL so run a sleep command until it's ready.
           name: Waiting for MySQL to be ready
           command: |
