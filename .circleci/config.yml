@@ -28,6 +28,8 @@ jobs:
 
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
+      - run: sudo docker-php-ext-install pdo_mysql
+      - run: sudo apt-get install default-mysql-client
 
       # Download and cache dependencies
       - restore_cache:
@@ -64,12 +66,7 @@ jobs:
               echo -n .
               sleep 1
             done
-            echo Failed waiting for MySQL && exit 1
-      - run:
-          name: Install MySQL CLI; Import dummy data; run an example query
-          command: |
-            sudo apt-get install default-mysql-client
-
+            echo Failed waiting for MySQL && exit 1      
       # run tests with phpunit or codecept
       - run: ./vendor/bin/phpunit
       #- run: ./vendor/bin/codeception build
