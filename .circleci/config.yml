@@ -8,7 +8,7 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.3-node-browsers
-      - image: circleci/mysql:8.0.4
+      - image: circleci/mysql:5.7
         environment:
           MYSQL_DATABASE: heroku_7d33962fceb06b7
           MYSQL_USER: b9ae1ac0906816
