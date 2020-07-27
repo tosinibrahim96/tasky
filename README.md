@@ -1,3 +1,5 @@
+[![tosinibrahim96](https://circleci.com/gh/tosinibrahim96/tasky.svg?style=svg)](https://tasky-be.herokuapp.com/)
+
 # Tasky
 
 > API implementation for the tasky application using Laravel
