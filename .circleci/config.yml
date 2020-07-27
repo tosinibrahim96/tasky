@@ -9,11 +9,11 @@ jobs:
       # Specify the version you desire here
       - image: circleci/php:7.3-node-browsers
       - image: circleci/mysql:5.7
-        # environment:
-        #   MYSQL_ROOT_PASSWORD: rootpw
-        #   MYSQL_DATABASE: test_db
-        #   MYSQL_USER: user
-        #   MYSQL_PASSWORD: passw0rd
+        environment:
+          MYSQL_DATABASE: echo $DB_DATABASE
+          MYSQL_USER: echo $DB_USERNAME
+          MYSQL_PASSWORD: echo $DB_PASSWORD
+          MYSQL_ROOT_PASSWORD: echo $DB_PASSWORD
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -35,7 +35,7 @@ jobs:
       - run:
           name: "Create Environment file"
           command: |
-            mv .env.testing .env
+            touch .env
 
       # Download and cache dependencies
       - restore_cache:
