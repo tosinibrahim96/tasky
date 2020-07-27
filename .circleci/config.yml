@@ -9,11 +9,11 @@ jobs:
       # Specify the version you desire here
       - image: circleci/php:7.3-node-browsers
       - image: circleci/mysql:5.7
-        environment:
-          MYSQL_ROOT_PASSWORD: rootpw
-          MYSQL_DATABASE: test_db
-          MYSQL_USER: user
-          MYSQL_PASSWORD: passw0rd
+        # environment:
+        #   MYSQL_ROOT_PASSWORD: rootpw
+        #   MYSQL_DATABASE: test_db
+        #   MYSQL_USER: user
+        #   MYSQL_PASSWORD: passw0rd
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -31,6 +31,11 @@ jobs:
       - run: sudo docker-php-ext-install zip
       - run: sudo docker-php-ext-install pdo_mysql
       - run: sudo apt-get install default-mysql-client
+
+      - run:
+          name: "Create Environment file"
+          command: |
+            mv .env.testing .env
 
       # Download and cache dependencies
       - restore_cache:
@@ -56,6 +61,10 @@ jobs:
           paths:
             - node_modules
 
+      - run:
+          name: "Generate App key"
+          command: php artisan key:generate
+
       # prepare the database
       - run:
       # Our primary container isn't MYSQL so run a sleep command until it's ready.
@@ -67,7 +76,7 @@ jobs:
               echo -n .
               sleep 1
             done
-            echo Failed waiting for MySQL && exit 1      
+            echo Failed waiting for MySQL && exit 1
       # run tests with phpunit or codecept
       - run: ./vendor/bin/phpunit
       #- run: ./vendor/bin/codeception build
