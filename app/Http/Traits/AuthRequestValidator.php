@@ -30,4 +30,28 @@ trait AuthRequestValidator
       return $result;
     }
   }
+
+
+   /**
+   * Validate data sent for user login.
+   * @param Request $request
+   * @return Array $result
+   */
+
+  function validateLogin($request)
+  {
+    $result = ["status" => true, "data" => null];
+    $validator = Validator::make($request->all(), [
+      'username_or_email' => 'required|string',
+      'password' => 'required'
+    ]);
+
+    if ($validator->fails()) {
+      $result['status'] = false;
+      $result['data'] = $validator->errors()->all();
+      return $result;
+    } else {
+      return $result;
+    }
+  }
 }
