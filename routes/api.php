@@ -19,9 +19,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::namespace('API')->prefix('/v1')->group(function () use ($router) {
+Route::namespace('API')->prefix('/v1')->group(function () {
   Route::apiResources(['projects' => 'ProjectController', 'tasks' => 'TaskController', 'projects.payments' => 'PaymentController']);
   Route::get('/dashboard', 'DashboardController@index');
   Route::post('/auth/register', 'AuthController@register');
   Route::post('/auth/login', 'AuthController@login');
+});
+
+
+Route::middleware(['protected'])->namespace('API')->prefix('/v1')->group(function () {
+  Route::get('/protected', function () {
+    return 'Protected route.';
+  });
 });
